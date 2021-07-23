@@ -77,7 +77,9 @@ class QuestionFragment : Fragment() {
                     binding.radioGroup.clearCheck()
                     setQuestion()
                 }else{
-                    Navigation.findNavController(it).navigate(R.id.action_questionFragment_to_thankYouFragment)
+                    val percentage : Float = (score/questionIndex.toFloat())*100
+                    val action = QuestionFragmentDirections.actionQuestionFragmentToThankYouFragment(percentage)
+                    Navigation.findNavController(it).navigate(action)
                 }
 
             }else{
